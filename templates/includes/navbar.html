@@ -1,0 +1,48 @@
+{% with match=request.resolver_match %}
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm green-navbar">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-uppercase" href="{% url 'home' %}">GreenShop</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Переключить меню">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link{% if match and match.url_name == 'catalog' %} active{% endif %}" href="{% url 'catalog' %}">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if match and match.url_name == 'account_orders' %} active{% endif %}" href="{% url 'account_orders' %}">Заказы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link{% if match and match.url_name == 'account_profile' %} active{% endif %}" href="{% url 'account_profile' %}">Профиль</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center gap-3">
+                <a class="btn btn-accent position-relative" href="{% url 'cart_detail' %}">
+                    <i class="bi bi-bag-check"></i>
+                    Корзина
+                    <span id="cart-count" class="badge rounded-pill text-bg-light ms-2">{{ cart_item_count|default:0 }}</span>
+                </a>
+                {% if request.user.is_authenticated %}
+                    <div class="dropdown">
+                        <button class="btn btn-outline-light dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ request.user.username }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                            <li><a class="dropdown-item" href="{% url 'account_dashboard' %}">Личный кабинет</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Выход</a></li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="d-flex gap-2">
+                        <a class="btn btn-outline-light" href="{% url 'login' %}">Вход</a>
+                        <a class="btn btn-light text-success fw-semibold" href="{% url 'register' %}">Регистрация</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+{% endwith %}
+

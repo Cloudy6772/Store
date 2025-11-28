@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load humanize static %}
+
+{% block title %}Корзина — GreenShop{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <p class="text-success text-uppercase small mb-1">Мои покупки</p>
+        <h1 class="h3 mb-0">Корзина</h1>
+    </div>
+    <a class="btn btn-outline-success" href="{% url 'catalog' %}">Продолжить покупки</a>
+</div>
+
+{% if cart|length == 0 %}
+    <div class="alert alert-info">Ваша корзина пуста. Добавьте товары из каталога.</div>
+{% else %}
+    <div class="table-responsive cart-table shadow-sm rounded">
+        <table class="table align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Товар</th>
+                    <th class="text-center">Цена</th>
+                    <th class="text-center">Количество</th>
+                    <th class="text-end">Сумма</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="ratio ratio-1x1 rounded bg-light" style="width:80px;">
+                                    {% if item.product.primary_image %}
+                                        <img src="{{ item.product.primary_image.url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                                    {% elif item.product.main_image %}
+                                        <img src="{{ item.product.main_image.url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                                    {% else %}
+                                        <img src="{% static 'img/product-placeholder.svg' %}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    <a class="fw-semibold text-decoration-none text-dark" href="{{ item.product.get_absolute_url }}">{{ item.product.name }}</a>
+                                    <p class="text-muted small mb-0">{{ item.product.category.name }}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center fw-semibold">{{ item.price|floatformat:2 }} ₽</td>
+                        <td class="text-center">
+                            <form class="d-inline-flex align-items-center gap-2 js-cart-form" data-refresh="true" action="{% url 'cart_update' item.product.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="number" min="1" name="quantity" value="{{ item.quantity }}" class="form-control form-control-sm text-center">
+                                <button type="submit" class="btn btn-sm btn-outline-success">OK</button>
+                            </form>
+                        </td>
+                        <td class="text-end fw-bold">{{ item.total_price|floatformat:2 }} ₽</td>
+                        <td class="text-end">
+                            <form class="js-cart-form" data-refresh="true" action="{% url 'cart_remove' item.product.id %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-link text-danger p-0">Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row justify-content-end mt-4">
+        <div class="col-md-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title">Итого</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Товаров</span>
+                        <span>{{ cart|length }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-semibold">Сумма</span>
+                        <span id="cart-total" class="fs-4 fw-bold text-success">{{ cart.total|floatformat:2 }} ₽</span>
+                    </div>
+                    <a href="{% url 'checkout' %}" class="btn btn-success btn-lg w-100 mt-3">Оформить заказ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+

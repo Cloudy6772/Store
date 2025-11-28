@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+
+{% block title %}{{ product.name }} — GreenShop{% endblock %}
+
+{% block content %}
+<div class="row g-4 align-items-start">
+    <div class="col-lg-6">
+        {% if gallery %}
+            <div id="productGallery" class="carousel slide shadow-sm rounded">
+                <div class="carousel-inner">
+                    {% for image in gallery %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{{ image.image.url }}" class="d-block w-100 rounded" alt="{{ image.alt_text|default:product.name }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productGallery" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Предыдущий</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productGallery" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Следующий</span>
+                </button>
+            </div>
+        {% else %}
+            <img src="{% if product.main_image %}{{ product.main_image.url }}{% else %}{% static 'img/product-placeholder.svg' %}{% endif %}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+        {% endif %}
+    </div>
+    <div class="col-lg-6">
+        <span class="badge text-bg-light text-success mb-2">{{ product.category.name }}</span>
+        <h1 class="h3">{{ product.name }}</h1>
+        <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="fs-3 fw-bold text-success">{{ product.price|floatformat:2 }} ₽</span>
+            <span class="text-warning"><i class="bi bi-star-fill"></i> {{ product.rating|default:4.5 }}</span>
+            <span class="text-muted">В наличии: {{ product.stock }}</span>
+        </div>
+        <p class="lead">{{ product.description }}</p>
+        <div class="card border-success-subtle shadow-sm mb-4">
+            <div class="card-body">
+                <form class="row g-3 align-items-end js-cart-form" action="{% url 'cart_add' product.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="col-md-4">
+                        <label for="quantity" class="form-label">Количество</label>
+                        <input type="number" min="1" max="{{ product.stock|default:10 }}" value="1" name="quantity" id="quantity" class="form-control">
+                    </div>
+                    <div class="col-md-8 d-grid">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="bi bi-bag-plus"></i> Добавить в корзину
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <ul class="list-unstyled small text-muted">
+            <li><i class="bi bi-truck text-success me-2"></i>Быстрая доставка по всей России</li>
+            <li><i class="bi bi-shield-check text-success me-2"></i>Гарантия возврата 14 дней</li>
+            <li><i class="bi bi-tree text-success me-2"></i>Эко-упаковка без пластика</li>
+        </ul>
+    </div>
+</div>
+
+<section class="mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Похожие товары</h2>
+        <a class="text-success" href="{% url 'catalog' %}?category={{ product.category.slug }}">Все из категории</a>
+    </div>
+    <div class="row">
+        {% for related in related_products %}
+            {% include 'includes/product_card.html' with product=related show_category=False %}
+        {% empty %}
+            <p class="text-muted">Похожие товары появятся, когда каталог пополнится.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

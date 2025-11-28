@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}GreenShop — свежие эко-товары{% endblock %}
+
+{% block content %}
+<section class="hero mb-5 shadow-accent">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <p class="text-uppercase text-success fw-bold mb-2">Эко-магазин №1</p>
+            <h1 class="display-5 fw-bold mb-3">Свежие товары и забота о планете в одном месте</h1>
+            <p class="lead mb-4">Выбирайте из тщательно подобранных категорий, оформляйте заказ за пару кликов и отслеживайте историю покупок в личном кабинете.</p>
+            <div class="hero-cta d-flex flex-wrap gap-3">
+                <a class="btn btn-success btn-lg" href="{% url 'catalog' %}">Перейти в каталог</a>
+                <a class="btn btn-outline-success btn-lg" href="{% url 'account_dashboard' %}">Личный кабинет</a>
+            </div>
+        </div>
+        <div class="col-lg-5 text-center">
+            <img src="{% static 'img/product-placeholder.svg' %}" class="img-fluid" alt="GreenShop promo">
+        </div>
+    </div>
+</section>
+
+<section class="mb-5">
+    <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
+        <h2 class="h4 mb-0">Категории</h2>
+        <div class="d-flex flex-wrap gap-2">
+            {% for category in categories %}
+                <a class="badge rounded-pill category-pill" href="{% url 'catalog' %}?category={{ category.slug }}">{{ category.name }}</a>
+            {% empty %}
+                <span class="text-muted">Категории ещё не добавлены.</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Популярные товары</h2>
+        <a class="text-success text-decoration-none" href="{% url 'catalog' %}">Открыть каталог →</a>
+    </div>
+    <div class="row">
+        {% for product in featured_products %}
+            {% include 'includes/product_card.html' with product=product show_category=True %}
+        {% empty %}
+            <p class="text-muted">Популярные товары появятся после добавления в админке.</p>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Новинки</h2>
+        <a class="text-success text-decoration-none" href="{% url 'catalog' %}?sort=new">Все новинки →</a>
+    </div>
+    <div class="row">
+        {% for product in new_arrivals %}
+            {% include 'includes/product_card.html' with product=product show_category=True %}
+        {% empty %}
+            <p class="text-muted">Добавьте первые товары, чтобы увидеть новинки.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}Каталог товаров — GreenShop{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <aside class="col-lg-3">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title">Фильтры</h5>
+                <form method="get" class="mb-4">
+                    <div class="mb-3">
+                        <label for="search" class="form-label">Поиск</label>
+                        <input type="text" id="search" name="q" value="{{ request.GET.q }}" class="form-control" placeholder="Название или описание">
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Найти</button>
+                </form>
+                <h6 class="text-uppercase text-muted small">Категории</h6>
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="{% url 'catalog' %}" class="badge rounded-pill category-pill{% if not active_category %} active{% endif %}">Все</a>
+                    {% for category in categories %}
+                        <a href="{% url 'catalog' %}?category={{ category.slug }}{% if request.GET.q %}&amp;q={{ request.GET.q }}{% endif %}"
+                           class="badge rounded-pill category-pill{% if active_category == category.slug %} active{% endif %}">
+                            {{ category.name }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </aside>
+    <section class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-3">
+            <div>
+                <h1 class="h4 mb-0">Товары</h1>
+                <p class="text-muted small mb-0">Найдено {{ page_obj.paginator.count }} позиций</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+                <span class="text-muted small text-uppercase">Сортировка</span>
+                <div class="btn-group">
+                    <a class="btn btn-sm {% if not active_sort %}btn-success{% else %}btn-outline-success{% endif %}"
+                       href="?{% if request.GET.q %}q={{ request.GET.q }}&amp;{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&amp;{% endif %}">
+                        По алфавиту
+                    </a>
+                    <a class="btn btn-sm {% if active_sort == 'new' %}btn-success{% else %}btn-outline-success{% endif %}"
+                       href="?{% if request.GET.q %}q={{ request.GET.q }}&amp;{% endif %}{% if request.GET.category %}category={{ request.GET.category }}&amp;{% endif %}sort=new">
+                        Новинки
+                    </a>
+                </div>
+            </div>
+            <a class="btn btn-outline-success ms-auto" href="{% url 'catalog' %}">Сбросить фильтры</a>
+        </div>
+        <div class="row">
+            {% for product in page_obj %}
+                {% include 'includes/product_card.html' with product=product show_category=False %}
+            {% empty %}
+                <div class="col-12">
+                    <div class="alert alert-info">Нет товаров, подходящих под выбранные фильтры.</div>
+                </div>
+            {% endfor %}
+        </div>
+        {% include 'includes/pagination.html' %}
+    </section>
+</div>
+{% endblock %}
+

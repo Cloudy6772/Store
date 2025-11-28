@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}Оформление заказа — GreenShop{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h1 class="h4 mb-4">Данные покупателя</h1>
+                <form method="post" class="row g-3">
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        <div class="col-12">
+                            <div class="alert alert-danger">
+                                {% for error in form.non_field_errors %}{{ error }}<br>{% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% for field in form %}
+                        <div class="col-md-{% if field.name == 'notes' %}12{% else %}6{% endif %}">
+                            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <small class="text-muted d-block">{{ field.help_text }}</small>
+                            {% endif %}
+                            {% for error in field.errors %}
+                                <div class="text-danger small">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success btn-lg w-100">Подтвердить заказ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card shadow-sm border-success-subtle">
+            <div class="card-body">
+                <h2 class="h5 mb-3">Ваш заказ</h2>
+                <ul class="list-group list-group-flush mb-3">
+                    {% for item in cart %}
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+                            <span class="fw-semibold">{{ item.total_price|floatformat:2 }} ₽</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="d-flex justify-content-between">
+                    <span class="fw-semibold">Итого</span>
+                    <span class="fs-4 text-success fw-bold">{{ cart.total|floatformat:2 }} ₽</span>
+                </div>
+            </div>
+        </div>
+        <p class="small text-muted mt-3">
+            Нажимая на кнопку, вы соглашаетесь с условиями обработки персональных данных и политикой конфиденциальности.
+        </p>
+    </div>
+</div>
+{% endblock %}
+

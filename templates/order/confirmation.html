@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}Заказ №{{ order.id }} — GreenShop{% endblock %}
+
+{% block content %}
+<div class="row g-4 align-items-start">
+    <div class="col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <p class="text-success text-uppercase small mb-1">Спасибо за покупку!</p>
+                <h1 class="h4">Заказ №{{ order.id }}</h1>
+                <p class="mb-3">Статус: <span class="badge bg-success-subtle text-success order-status-badge">{{ order.get_status_display }}</span></p>
+                <p>Мы отправили подтверждение на <strong>{{ order.email }}</strong>. В ближайшее время с вами свяжется менеджер для уточнения деталей доставки.</p>
+                <h5 class="mt-4">Детали доставки</h5>
+                <ul class="list-unstyled">
+                    <li>{{ order.first_name }} {{ order.last_name }}</li>
+                    <li>{{ order.phone }}</li>
+                    <li>{{ order.address }}, {{ order.city }}, {{ order.postal_code }}</li>
+                </ul>
+                {% if order.notes %}
+                    <div class="alert bg-success-subtle text-success">{{ order.notes }}</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card shadow-sm border-success-subtle">
+            <div class="card-body">
+                <h2 class="h5 mb-3">Состав заказа</h2>
+                <ul class="list-group list-group-flush mb-3">
+                    {% for item in order.items.all %}
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+                            <span class="fw-semibold">{{ item.total_price|floatformat:2 }} ₽</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="d-flex justify-content-between">
+                    <span class="fw-semibold">Итого</span>
+                    <span class="fs-4 text-success fw-bold">{{ order.total_amount|floatformat:2 }} ₽</span>
+                </div>
+                <a href="{% url 'catalog' %}" class="btn btn-success w-100 mt-3">Вернуться в каталог</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

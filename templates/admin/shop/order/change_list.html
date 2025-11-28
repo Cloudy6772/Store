@@ -1,0 +1,23 @@
+{% extends "admin/change_list.html" %}
+{% load humanize %}
+
+{% block content %}
+    {% if sales_stats %}
+        <div style="display:flex;gap:2rem;margin-bottom:1.5rem;padding:1rem;border-radius:8px;background:rgba(40,167,69,0.12);">
+            <div>
+                <div class="fw-bold text-uppercase small text-muted">Выручка</div>
+                <div class="h4 mb-0">{{ sales_stats.revenue|floatformat:2 }} ₽</div>
+            </div>
+            <div>
+                <div class="fw-bold text-uppercase small text-muted">Заказы</div>
+                <div class="h4 mb-0">{{ sales_stats.orders }}</div>
+            </div>
+            <div>
+                <div class="fw-bold text-uppercase small text-muted">Товаров продано</div>
+                <div class="h4 mb-0">{{ sales_stats.items }}</div>
+            </div>
+        </div>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
