@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}GreenShop — свежие эко-товары{% endblock %}
+{% block title %}GreenShop — любые товары в одном месте{% endblock %}
 
 {% block content %}
 <section class="hero mb-5 shadow-accent">
     <div class="row align-items-center">
         <div class="col-lg-7">
-            <p class="text-uppercase text-success fw-bold mb-2">Эко-магазин №1</p>
-            <h1 class="display-5 fw-bold mb-3">Свежие товары и забота о планете в одном месте</h1>
+            <p class="text-uppercase text-success fw-bold mb-2">Оптовый магазин №1</p>
+            <h1 class="display-5 fw-bold mb-3">Всё что вам нужно в одном месте</h1>
             <p class="lead mb-4">Выбирайте из тщательно подобранных категорий, оформляйте заказ за пару кликов и отслеживайте историю покупок в личном кабинете.</p>
             <div class="hero-cta d-flex flex-wrap gap-3">
                 <a class="btn btn-success btn-lg" href="{% url 'catalog' %}">Перейти в каталог</a>
@@ -22,15 +22,34 @@
 </section>
 
 <section class="mb-5">
-    <div class="d-flex flex-wrap align-items-center gap-3 mb-3">
-        <h2 class="h4 mb-0">Категории</h2>
-        <div class="d-flex flex-wrap gap-2">
-            {% for category in categories %}
-                <a class="badge rounded-pill category-pill" href="{% url 'catalog' %}?category={{ category.slug }}">{{ category.name }}</a>
-            {% empty %}
-                <span class="text-muted">Категории ещё не добавлены.</span>
-            {% endfor %}
-        </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="h4 mb-0">Популярные категории</h2>
+        <a class="text-success text-decoration-none" href="{% url 'category_list' %}">Все категории →</a>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        {% for category in categories|slice:":6" %}
+            <div class="col">
+                <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm category-card">
+                        <div class="ratio ratio-16x9">
+                            {% if category.hero_image %}
+                                <img src="{{ category.hero_image }}" class="card-img-top" alt="{{ category.name }}">
+                            {% else %}
+                                <img src="{% static 'img/product-placeholder.svg' %}" class="card-img-top p-4" alt="{{ category.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-success">{{ category.name }}</h5>
+                            <p class="card-text text-muted">{{ category.description|truncatechars:120 }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <div class="col">
+                <div class="alert alert-info mb-0">Категории ещё не добавлены.</div>
+            </div>
+        {% endfor %}
     </div>
 </section>
 

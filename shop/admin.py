@@ -19,19 +19,87 @@ class ProductImageInline(admin.TabularInline):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("name", "slug", "created_at")
+    list_display = ("name", "slug", "preview_image", "created_at")
     search_fields = ("name",)
     prepopulated_fields = {"slug": ("name",)}
+    readonly_fields = ("preview_image",)
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "slug",
+                    "description",
+                    "image",
+                    "image_url",
+                    "preview_image",
+                )
+            },
+        ),
+    )
+
+    def preview_image(self, obj):
+        url = obj.hero_image
+        if not url:
+            return "—"
+        return mark_safe(f'<img src="{url}" width="120" height="80" style="object-fit:cover;">')
+
+    preview_image.short_description = "Превью"
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "category", "price", "stock", "is_active", "is_featured")
+    list_display = (
+        "name",
+        "category",
+        "price",
+        "stock",
+        "is_active",
+        "is_featured",
+        "preview_image",
+    )
     list_filter = ("category", "is_active", "is_featured")
     search_fields = ("name", "description")
     prepopulated_fields = {"slug": ("name",)}
     inlines = [ProductImageInline]
     list_editable = ("price", "stock", "is_active", "is_featured")
+    readonly_fields = ("preview_image",)
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "category",
+                    "name",
+                    "slug",
+                    "description",
+                    "price",
+                    "stock",
+                    "is_active",
+                    "is_featured",
+                )
+            },
+        ),
+        (
+            "Изображения",
+            {
+                "fields": (
+                    "main_image",
+                    "image_url",
+                    "preview_image",
+                )
+            },
+        ),
+    )
+
+    def preview_image(self, obj):
+        url = obj.primary_image_url
+        if not url:
+            return "—"
+        return mark_safe(f'<img src="{url}" width="80" height="80" style="object-fit:cover;">')
+
+    preview_image.short_description = "Превью"
 
 
 class OrderItemInline(admin.TabularInline):
@@ -42,7 +110,7 @@ class OrderItemInline(admin.TabularInline):
     def line_total(self, obj):
         if not obj.pk:
             return "—"
-        return f"{obj.total_price:.2f} ₽"
+        return f"{obj.total_price:.2f} $"
 
 
 @admin.register(Order)
@@ -55,7 +123,7 @@ class OrderAdmin(admin.ModelAdmin):
     change_list_template = "admin/shop/order/change_list.html"
 
     def total_amount_display(self, obj):
-        return f"{obj.total_amount:.2f} ₽"
+        return f"{obj.total_amount:.2f} $"
 
     total_amount_display.short_description = "Сумма"
 

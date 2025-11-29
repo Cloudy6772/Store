@@ -32,8 +32,8 @@
                         <td>
                             <div class="d-flex align-items-center gap-3">
                                 <div class="ratio ratio-1x1 rounded bg-light" style="width:80px;">
-                                    {% if item.product.primary_image %}
-                                        <img src="{{ item.product.primary_image.url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
+                                    {% if item.product.primary_image_url %}
+                                        <img src="{{ item.product.primary_image_url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
                                     {% elif item.product.main_image %}
                                         <img src="{{ item.product.main_image.url }}" class="img-fluid rounded" alt="{{ item.product.name }}">
                                     {% else %}
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center fw-semibold">{{ item.price|floatformat:2 }} ₽</td>
+                        <td class="text-center fw-semibold">{{ item.price|floatformat:2 }} $</td>
                         <td class="text-center">
                             <form class="d-inline-flex align-items-center gap-2 js-cart-form" data-refresh="true" action="{% url 'cart_update' item.product.id %}" method="post">
                                 {% csrf_token %}
@@ -54,7 +54,7 @@
                                 <button type="submit" class="btn btn-sm btn-outline-success">OK</button>
                             </form>
                         </td>
-                        <td class="text-end fw-bold">{{ item.total_price|floatformat:2 }} ₽</td>
+                        <td class="text-end fw-bold">{{ item.total_price|floatformat:2 }} $</td>
                         <td class="text-end">
                             <form class="js-cart-form" data-refresh="true" action="{% url 'cart_remove' item.product.id %}" method="post">
                                 {% csrf_token %}
@@ -78,7 +78,7 @@
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
                         <span class="fw-semibold">Сумма</span>
-                        <span id="cart-total" class="fs-4 fw-bold text-success">{{ cart.total|floatformat:2 }} ₽</span>
+                        <span id="cart-total" class="fs-4 fw-bold text-success">{{ cart.total|floatformat:2 }} $</span>
                     </div>
                     <a href="{% url 'checkout' %}" class="btn btn-success btn-lg w-100 mt-3">Оформить заказ</a>
                 </div>

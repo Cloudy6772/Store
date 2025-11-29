@@ -2,8 +2,8 @@
 <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
     <div class="card product-card h-100 border-success-subtle">
         <a href="{{ product.get_absolute_url }}" class="ratio ratio-4x3 bg-light d-block">
-            {% if product.primary_image %}
-                <img src="{{ product.primary_image.url }}" class="card-img-top object-fit-cover" alt="{{ product.name }}">
+            {% if product.primary_image_url %}
+                <img src="{{ product.primary_image_url }}" class="card-img-top object-fit-cover" alt="{{ product.name }}">
             {% elif product.main_image %}
                 <img src="{{ product.main_image.url }}" class="card-img-top object-fit-cover" alt="{{ product.name }}">
             {% else %}
@@ -19,7 +19,7 @@
             </h6>
             <p class="small text-muted flex-grow-1">{{ product.description|truncatechars:90 }}</p>
             <div class="d-flex align-items-center justify-content-between mb-3">
-                <span class="price-tag fw-bold text-success">{{ product.price|floatformat:2 }} ₽</span>
+                <span class="price-tag fw-bold text-success">{{ product.price|floatformat:2 }} $</span>
                 <span class="text-warning"><i class="bi bi-star-fill"></i> {{ product.rating|default:4.5 }}</span>
             </div>
             <form class="d-grid gap-2 js-cart-form" action="{% url 'cart_add' product.id %}" method="post">

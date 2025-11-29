@@ -32,7 +32,7 @@
                         <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
                         <td>{{ order.items.all|length }}</td>
                         <td><span class="badge bg-success-subtle text-success">{{ order.get_status_display }}</span></td>
-                        <td class="text-end fw-semibold">{{ order.total_amount|floatformat:2 }} ₽</td>
+                        <td class="text-end fw-semibold">{{ order.total_amount|floatformat:2 }} $</td>
                         <td class="text-end"><a href="{% url 'order_confirmation' order.id %}" class="btn btn-sm btn-success">Подробнее</a></td>
                     </tr>
                 {% endfor %}

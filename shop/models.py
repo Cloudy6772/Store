@@ -20,6 +20,7 @@ class Category(TimeStampedModel):
     slug = models.SlugField(max_length=140, unique=True)
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to="categories/", blank=True, null=True)
+    image_url = models.URLField(blank=True)
 
     class Meta:
         ordering = ["name"]
@@ -30,6 +31,15 @@ class Category(TimeStampedModel):
 
     def get_absolute_url(self) -> str:
         return reverse("catalog") + f"?category={self.slug}"
+
+    @property
+    def hero_image(self) -> str | None:
+        if self.image:
+            try:
+                return self.image.url
+            except ValueError:
+                return None
+        return self.image_url or None
 
 
 class Product(TimeStampedModel):
@@ -42,6 +52,7 @@ class Product(TimeStampedModel):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
     main_image = models.ImageField(upload_to="products/main/", blank=True, null=True)
+    image_url = models.URLField(blank=True)
     is_active = models.BooleanField(default=True)
     is_featured = models.BooleanField(default=False)
     rating = models.DecimalField(
@@ -61,12 +72,24 @@ class Product(TimeStampedModel):
     def primary_image(self):
         """Return preferred image, falling back to gallery or None."""
         main = self.images.filter(is_main=True).first()
-        if main:
+        if main and main.image:
             return main.image
         fallback = self.images.first()
-        if fallback:
+        if fallback and fallback.image:
             return fallback.image
-        return self.main_image
+        if self.main_image:
+            return self.main_image
+        return None
+
+    @property
+    def primary_image_url(self) -> str | None:
+        image = self.primary_image
+        if image:
+            try:
+                return image.url
+            except ValueError:
+                pass
+        return self.image_url or None
 
 
 class ProductImage(TimeStampedModel):

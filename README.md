@@ -22,7 +22,7 @@ venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser  # по желанию
-python manage.py seed_store       # демо-данные
+python manage.py load_catalog_data --flush  # демо-каталог
 python manage.py runserver
 ```
 
@@ -30,5 +30,5 @@ python manage.py runserver
 - `http://127.0.0.1:8000/` — витрина и каталог
 - `http://127.0.0.1:8000/admin/` — админка (после создания суперпользователя)
 
-Статические файлы уже настроены (`static/`), кастомные стили — в `static/css/custom.css`, сценарий динамики корзины — `static/js/cart.js`, шаблоны — в `templates/`.
+Статические файлы уже настроены (`static/`), кастомные стили — в `static/css/custom.css`, сценарий динамики корзины — `static/js/cart.js`, шаблоны — в `templates/`. Для обновления демонстрационных категорий и товаров повторно выполните `python manage.py load_catalog_data --flush`.
 

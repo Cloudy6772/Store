@@ -25,14 +25,20 @@
                 </button>
             </div>
         {% else %}
-            <img src="{% if product.main_image %}{{ product.main_image.url }}{% else %}{% static 'img/product-placeholder.svg' %}{% endif %}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+            {% if product.primary_image_url %}
+                <img src="{{ product.primary_image_url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+            {% elif product.main_image %}
+                <img src="{{ product.main_image.url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+            {% else %}
+                <img src="{% static 'img/product-placeholder.svg' %}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+            {% endif %}
         {% endif %}
     </div>
     <div class="col-lg-6">
         <span class="badge text-bg-light text-success mb-2">{{ product.category.name }}</span>
         <h1 class="h3">{{ product.name }}</h1>
         <div class="d-flex align-items-center gap-3 mb-3">
-            <span class="fs-3 fw-bold text-success">{{ product.price|floatformat:2 }} ₽</span>
+            <span class="fs-3 fw-bold text-success">{{ product.price|floatformat:2 }} $</span>
             <span class="text-warning"><i class="bi bi-star-fill"></i> {{ product.rating|default:4.5 }}</span>
             <span class="text-muted">В наличии: {{ product.stock }}</span>
         </div>
@@ -54,9 +60,8 @@
             </div>
         </div>
         <ul class="list-unstyled small text-muted">
-            <li><i class="bi bi-truck text-success me-2"></i>Быстрая доставка по всей России</li>
+            <li><i class="bi bi-truck text-success me-2"></i>Быстрая доставка по всему Андижану</li>
             <li><i class="bi bi-shield-check text-success me-2"></i>Гарантия возврата 14 дней</li>
-            <li><i class="bi bi-tree text-success me-2"></i>Эко-упаковка без пластика</li>
         </ul>
     </div>
 </div>

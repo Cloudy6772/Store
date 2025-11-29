@@ -45,13 +45,13 @@
                     {% for item in cart %}
                         <li class="list-group-item d-flex justify-content-between">
                             <span>{{ item.product.name }} × {{ item.quantity }}</span>
-                            <span class="fw-semibold">{{ item.total_price|floatformat:2 }} ₽</span>
+                            <span class="fw-semibold">{{ item.total_price|floatformat:2 }} $</span>
                         </li>
                     {% endfor %}
                 </ul>
                 <div class="d-flex justify-content-between">
                     <span class="fw-semibold">Итого</span>
-                    <span class="fs-4 text-success fw-bold">{{ cart.total|floatformat:2 }} ₽</span>
+                    <span class="fs-4 text-success fw-bold">{{ cart.total|floatformat:2 }} $</span>
                 </div>
             </div>
         </div>

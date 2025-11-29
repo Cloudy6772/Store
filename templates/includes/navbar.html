@@ -12,6 +12,9 @@
                     <a class="nav-link{% if match and match.url_name == 'catalog' %} active{% endif %}" href="{% url 'catalog' %}">Каталог</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link{% if match and match.url_name == 'category_list' %} active{% endif %}" href="{% url 'category_list' %}">Категории</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link{% if match and match.url_name == 'account_orders' %} active{% endif %}" href="{% url 'account_orders' %}">Заказы</a>
                 </li>
                 <li class="nav-item">

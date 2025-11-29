@@ -1,0 +1,93 @@
+[
+  {
+    "model": "shop.category",
+    "pk": 1,
+    "fields": {
+      "name": "Техника",
+      "slug": "electronics",
+      "description": "Современная бытовая техника, компьютеры, ноутбуки, телевизоры и периферия для дома и офиса.",
+      "image_url": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 2,
+    "fields": {
+      "name": "Гаджеты",
+      "slug": "gadgets",
+      "description": "Умные устройства, технологичные новинки, носимые гаджеты и современные электронные устройства.",
+      "image_url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 3,
+    "fields": {
+      "name": "Сумки",
+      "slug": "bags",
+      "description": "Стильные сумки, рюкзаки, кошельки и аксессуары для переноски на любой случай.",
+      "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 4,
+    "fields": {
+      "name": "Игрушки",
+      "slug": "toys",
+      "description": "Развивающие игрушки, конструкторы, куклы, машинки и игры для детей всех возрастов.",
+      "image_url": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 5,
+    "fields": {
+      "name": "Здоровье",
+      "slug": "health",
+      "description": "Товары для здоровья, красоты, ухода за собой, спортивные товары и wellness-продукты.",
+      "image_url": "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 6,
+    "fields": {
+      "name": "Книги",
+      "slug": "books",
+      "description": "Художественная литература, образовательные книги, бизнес-литература и развивающие издания.",
+      "image_url": "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 7,
+    "fields": {
+      "name": "Одежда",
+      "slug": "clothing",
+      "description": "Модная одежда для мужчин, женщин и детей: повседневная, спортивная, деловая и вечерняя.",
+      "image_url": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 8,
+    "fields": {
+      "name": "Аксессуары",
+      "slug": "accessories",
+      "description": "Бижутерия, часы, ремни, очки, головные уборы и другие модные аксессуары.",
+      "image_url": "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=900"
+    }
+  },
+  {
+    "model": "shop.category",
+    "pk": 9,
+    "fields": {
+      "name": "Домашнее",
+      "slug": "home",
+      "description": "Товары для кухни, уюта и комфорта дома: текстиль, посуда, освещение и техника.",
+      "image_url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900"
+    }
+  }
+]
+

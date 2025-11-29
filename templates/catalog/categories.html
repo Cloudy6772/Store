@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Категории — GreenShop{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <p class="text-success text-uppercase small mb-1">Коллекции магазина</p>
+        <h1 class="h3 mb-0">Категории товаров</h1>
+    </div>
+    <a class="btn btn-success" href="{% url 'catalog' %}">Перейти в каталог</a>
+</div>
+
+{% if categories %}
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+        {% for category in categories %}
+            <div class="col">
+                <a href="{{ category.get_absolute_url }}" class="text-decoration-none text-dark">
+                    <div class="card h-100 shadow-sm category-card">
+                        <div class="ratio ratio-16x9">
+                            {% if category.hero_image %}
+                                <img src="{{ category.hero_image }}" class="card-img-top" alt="{{ category.name }}">
+                            {% else %}
+                                <img src="{% static 'img/product-placeholder.svg' %}" class="card-img-top p-4" alt="{{ category.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-success">{{ category.name }}</h5>
+                            <p class="card-text text-muted">{{ category.description }}</p>
+                            <span class="btn btn-outline-success btn-sm">Смотреть товары →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">Категории ещё не добавлены.</div>
+{% endif %}
+{% endblock %}
+

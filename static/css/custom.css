@@ -77,6 +77,14 @@ body {
     box-shadow: 0 1rem 2rem rgba(21, 87, 36, 0.15);
 }
 
+.category-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
 .price-tag {
     font-size: 1.1rem;
 }

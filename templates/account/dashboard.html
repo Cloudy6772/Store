@@ -17,7 +17,7 @@
         <div class="card accent-card shadow-sm">
             <div class="card-body">
                 <p class="text-muted small mb-1">Сумма покупок</p>
-                <h2 class="display-6 text-success mb-0">{{ total_spent|floatformat:2 }} ₽</h2>
+                <h2 class="display-6 text-success mb-0">{{ total_spent|floatformat:2 }} $</h2>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@
                                 <td><a href="{% url 'order_confirmation' order.id %}" class="text-decoration-none">#{{ order.id }}</a></td>
                                 <td>{{ order.created_at|date:"d.m.Y H:i" }}</td>
                                 <td><span class="badge bg-success-subtle text-success">{{ order.get_status_display }}</span></td>
-                                <td class="text-end">{{ order.total_amount|floatformat:2 }} ₽</td>
+                                <td class="text-end">{{ order.total_amount|floatformat:2 }} $</td>
                             </tr>
                         {% endfor %}
                     </tbody>

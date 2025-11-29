@@ -1,0 +1,755 @@
+[
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Смартфон Samsung Galaxy S23",
+      "slug": "samsung-galaxy-s23",
+      "description": "Флагманский смартфон с AMOLED-дисплеем 6.1\", камерой 50 Мп и поддержкой 5G.",
+      "price": "799.00",
+      "stock": 25,
+      "image_url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.80"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Ноутбук ASUS VivoBook 15",
+      "slug": "asus-vivobook-15",
+      "description": "Тонкий ноутбук с процессором Intel Core i7, 16 ГБ ОЗУ и SSD 512 ГБ.",
+      "price": "899.00",
+      "stock": 18,
+      "image_url": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.70"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Телевизор LG 4K 55\"",
+      "slug": "lg-4k-55",
+      "description": "55-дюймовый телевизор LG с поддержкой HDR10 и webOS для потоковых сервисов.",
+      "price": "649.00",
+      "stock": 12,
+      "image_url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.60"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Планшет Apple iPad Air",
+      "slug": "ipad-air-2024",
+      "description": "Легкий планшет с 10.9\" дисплеем Liquid Retina и процессором M1.",
+      "price": "749.00",
+      "stock": 20,
+      "image_url": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.75"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "category": 1,
+      "name": "Умные часы Apple Watch Series 9",
+      "slug": "apple-watch-series-9",
+      "description": "Премиальные смарт-часы с пульсоксиметром, GPS и режимами тренировок.",
+      "price": "399.00",
+      "stock": 30,
+      "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.65"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "Беспроводные наушники AirPods Pro",
+      "slug": "airpods-pro",
+      "description": "Компактные наушники с активным шумоподавлением и режимом прозрачности.",
+      "price": "249.00",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.80"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "Фитнес-браслет Xiaomi Mi Band 8",
+      "slug": "xiaomi-mi-band-8",
+      "description": "Фитнес-браслет с отслеживанием сна, пульса и более 100 спортивных режимов.",
+      "price": "49.00",
+      "stock": 80,
+      "image_url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.50"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "category": 2,
+      "name": "Портативная колонка JBL Charge 5",
+      "slug": "jbl-charge-5",
+      "description": "Влагозащитная Bluetooth-колонка с мощным басом и автономностью до 20 часов.",
+      "price": "129.00",
+      "stock": 35,
+      "image_url": "https://images.unsplash.com/photo-1470246973918-29a93221c455?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+      "category": 2,
+      "name": "Power Bank 20000 mAh Anker",
+      "slug": "anker-powerbank-20000",
+      "description": "Емкий внешний аккумулятор с поддержкой Power Delivery и двумя USB-портами.",
+      "price": "39.00",
+      "stock": 60,
+      "image_url": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.40"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+      "category": 2,
+      "name": "Умная лампочка Philips Hue",
+      "slug": "philips-hue-bulb",
+      "description": "Лампочка с регулировкой яркости и оттенков через приложение и голосовых ассистентов.",
+      "price": "89.00",
+      "stock": 50,
+      "image_url": "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.45"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+      "category": 2,
+      "name": "Смарт-колонка Google Nest Mini",
+      "slug": "google-nest-mini",
+      "description": "Компактная умная колонка с Google Assistant и совместимостью с умным домом.",
+      "price": "59.00",
+      "stock": 55,
+      "image_url": "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.30"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+      "category": 3,
+      "name": "Кожаный рюкзак UrbanCraft",
+      "slug": "urbancraft-backpack",
+      "description": "Прочный кожаный рюкзак с отделением для ноутбука и удобной организацией.",
+      "price": "199.00",
+      "stock": 22,
+      "image_url": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.70"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 13,
+    "fields": {
+      "category": 3,
+      "name": "Вечерний клатч Velvet Night",
+      "slug": "velvet-night-clutch",
+      "description": "Компактный клатч с бархатной отделкой и металлическим ремешком.",
+      "price": "79.00",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1543294001-f7cd5d7fb516?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.50"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 14,
+    "fields": {
+      "category": 3,
+      "name": "Походная сумка TrekPack 45L",
+      "slug": "trekpack-45l",
+      "description": "Вместительная сумка с водоотталкивающей тканью и усиленным дном.",
+      "price": "129.00",
+      "stock": 28,
+      "image_url": "https://images.unsplash.com/photo-1521579880560-1c7c03da6693?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 15,
+    "fields": {
+      "category": 3,
+      "name": "Деловой портфель Executive",
+      "slug": "executive-briefcase",
+      "description": "Стильный кожаный портфель с отделением для документов и планшета.",
+      "price": "299.00",
+      "stock": 15,
+      "image_url": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.60"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 16,
+    "fields": {
+      "category": 3,
+      "name": "Спортивная сумка FlexGym",
+      "slug": "flexgym-sport-bag",
+      "description": "Легкая спортивная сумка с вентиляцией для обуви и карманами для аксессуаров.",
+      "price": "59.00",
+      "stock": 45,
+      "image_url": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.35"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 17,
+    "fields": {
+      "category": 4,
+      "name": "Конструктор LEGO Technic Bugatti",
+      "slug": "lego-technic-bugatti",
+      "description": "Сложный конструктор для подростков и взрослых с подвижными элементами.",
+      "price": "149.00",
+      "stock": 18,
+      "image_url": "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.85"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 18,
+    "fields": {
+      "category": 4,
+      "name": "Кукла Barbie Dreamhouse",
+      "slug": "barbie-dreamhouse",
+      "description": "Классическая кукла Barbie в ярком наряде с аксессуарами.",
+      "price": "49.00",
+      "stock": 60,
+      "image_url": "https://images.unsplash.com/photo-1549383024-03b4aa0436c0?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.40"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 19,
+    "fields": {
+      "category": 4,
+      "name": "Радиоуправляемая машинка Drift XR",
+      "slug": "drift-xr-car",
+      "description": "Быстрая машинка на радиоуправлении с аккумулятором и светодиодной подсветкой.",
+      "price": "89.00",
+      "stock": 32,
+      "image_url": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 20,
+    "fields": {
+      "category": 4,
+      "name": "Набор для рисования ArtTime",
+      "slug": "arttime-drawing-set",
+      "description": "Творческий набор с акварелью, кистями и альбомом для юных художников.",
+      "price": "29.00",
+      "stock": 70,
+      "image_url": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.35"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 21,
+    "fields": {
+      "category": 4,
+      "name": "Плюшевый мишка Classic",
+      "slug": "classic-teddy-bear",
+      "description": "Мягкий плюшевый мишка высотой 40 см, идеальный подарок детям.",
+      "price": "39.00",
+      "stock": 80,
+      "image_url": "https://images.unsplash.com/photo-1477768663691-75454fd8e870?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.50"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 22,
+    "fields": {
+      "category": 5,
+      "name": "Электрическая зубная щетка Oral-B Pro",
+      "slug": "oralb-pro-toothbrush",
+      "description": "Щетка с несколькими режимами чистки и Bluetooth-приложением.",
+      "price": "89.00",
+      "stock": 35,
+      "image_url": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.60"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 23,
+    "fields": {
+      "category": 5,
+      "name": "Тонометр Omron автоматический",
+      "slug": "omron-blood-pressure-monitor",
+      "description": "Домашний тонометр с большим экраном и памятью измерений.",
+      "price": "59.00",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.45"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 24,
+    "fields": {
+      "category": 5,
+      "name": "Массажер для шеи RelaxPro",
+      "slug": "relaxpro-neck-massager",
+      "description": "Шиацу-массажер с подогревом для шеи и плеч.",
+      "price": "49.00",
+      "stock": 45,
+      "image_url": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.30"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 25,
+    "fields": {
+      "category": 5,
+      "name": "Витаминный комплекс Daily Power",
+      "slug": "daily-power-vitamins",
+      "description": "Комплекс витаминов и минералов для ежедневной поддержки иммунитета.",
+      "price": "29.00",
+      "stock": 90,
+      "image_url": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.20"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 26,
+    "fields": {
+      "category": 5,
+      "name": "Фитнес-коврик BalanceFit",
+      "slug": "balancefit-mat",
+      "description": "Толстый нескользящий коврик для йоги и тренировок.",
+      "price": "39.00",
+      "stock": 55,
+      "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.25"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 27,
+    "fields": {
+      "category": 5,
+      "name": "Умные весы Withings Body",
+      "slug": "withings-body-scale",
+      "description": "Весы с анализом состава тела и синхронизацией со смартфоном.",
+      "price": "99.00",
+      "stock": 30,
+      "image_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.35"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 28,
+    "fields": {
+      "category": 6,
+      "name": "Мастер и Маргарита",
+      "slug": "master-i-margarita",
+      "description": "Классический роман Михаила Булгакова в подарочном издании.",
+      "price": "24.00",
+      "stock": 60,
+      "image_url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.90"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 29,
+    "fields": {
+      "category": 6,
+      "name": "Атлант расправил плечи",
+      "slug": "atlas-shrugged-ru",
+      "description": "Философский роман Айн Рэнд в трех томах.",
+      "price": "32.00",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.70"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 30,
+    "fields": {
+      "category": 6,
+      "name": "Python для начинающих",
+      "slug": "python-for-beginners",
+      "description": "Практическое руководство по языку Python с примерами.",
+      "price": "45.00",
+      "stock": 35,
+      "image_url": "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.60"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 31,
+    "fields": {
+      "category": 6,
+      "name": "Большая кулинарная книга",
+      "slug": "grand-cookbook",
+      "description": "Коллекция из 500 рецептов с фотографиями и советами шеф-поваров.",
+      "price": "28.00",
+      "stock": 50,
+      "image_url": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.45"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 32,
+    "fields": {
+      "category": 6,
+      "name": "Детская энциклопедия Wonder",
+      "slug": "wonder-kids-encyclopedia",
+      "description": "Яркая энциклопедия с иллюстрациями для детей 6-12 лет.",
+      "price": "36.00",
+      "stock": 55,
+      "image_url": "https://images.unsplash.com/photo-1519332978332-21b7c951889e?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 33,
+    "fields": {
+      "category": 7,
+      "name": "Джинсы классические Indigo",
+      "slug": "indigo-classic-jeans",
+      "description": "Универсальные джинсы прямого кроя из плотного денима.",
+      "price": "89.00",
+      "stock": 45,
+      "image_url": "https://images.unsplash.com/photo-1495129124122-881f02aa63de?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.50"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 34,
+    "fields": {
+      "category": 7,
+      "name": "Футболка хлопковая Basic",
+      "slug": "basic-cotton-tee",
+      "description": "Мягкая футболка из органического хлопка в базовом цвете.",
+      "price": "25.00",
+      "stock": 70,
+      "image_url": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.35"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 35,
+    "fields": {
+      "category": 7,
+      "name": "Свитер шерстяной Nordic",
+      "slug": "nordic-wool-sweater",
+      "description": "Теплый свитер из мериносовой шерсти с северным орнаментом.",
+      "price": "79.00",
+      "stock": 30,
+      "image_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.45"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 36,
+    "fields": {
+      "category": 7,
+      "name": "Платье вечернее Aurora",
+      "slug": "aurora-evening-dress",
+      "description": "Элегантное вечернее платье с шелковой подкладкой и разрезом.",
+      "price": "129.00",
+      "stock": 20,
+      "image_url": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 37,
+    "fields": {
+      "category": 7,
+      "name": "Спортивный костюм Motion",
+      "slug": "motion-sport-set",
+      "description": "Двухслойный спортивный костюм для тренировок и отдыха.",
+      "price": "99.00",
+      "stock": 34,
+      "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.40"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 38,
+    "fields": {
+      "category": 8,
+      "name": "Солнечные очки Ray-Ban Aviator",
+      "slug": "rayban-aviator",
+      "description": "Легендарные очки с золотой оправой и поляризационными линзами.",
+      "price": "159.00",
+      "stock": 26,
+      "image_url": "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.65"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 39,
+    "fields": {
+      "category": 8,
+      "name": "Кожаный ремень Classic",
+      "slug": "classic-leather-belt",
+      "description": "Ремень из натуральной кожи с матовой пряжкой.",
+      "price": "49.00",
+      "stock": 45,
+      "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.30"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 40,
+    "fields": {
+      "category": 8,
+      "name": "Серебряные серьги Minimal",
+      "slug": "minimal-silver-earrings",
+      "description": "Серьги из серебра 925 пробы с лаконичным дизайном.",
+      "price": "89.00",
+      "stock": 38,
+      "image_url": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.50"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 41,
+    "fields": {
+      "category": 8,
+      "name": "Наручные часы Casio Edifice",
+      "slug": "casio-edifice-watch",
+      "description": "Стальные часы с хронографом и водозащитой 100 м.",
+      "price": "199.00",
+      "stock": 20,
+      "image_url": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.55"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 42,
+    "fields": {
+      "category": 8,
+      "name": "Шарф шелковый Breeze",
+      "slug": "breeze-silk-scarf",
+      "description": "Легкий шелковый шарф с акварельным принтом.",
+      "price": "69.00",
+      "stock": 30,
+      "image_url": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.35"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 43,
+    "fields": {
+      "category": 9,
+      "name": "Набор кастрюль ChefMaster",
+      "slug": "chefmaster-cookware-set",
+      "description": "Нержавеющие кастрюли с тройным дном и стеклянными крышками.",
+      "price": "199.00",
+      "stock": 18,
+      "image_url": "https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=900",
+      "is_active": true,
+      "is_featured": true,
+      "rating": "4.65"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 44,
+    "fields": {
+      "category": 9,
+      "name": "Кофемашина DeLonghi Magnifica",
+      "slug": "delonghi-magnifica",
+      "description": "Автоматическая кофемашина с капучинатором и керамическими жерновами.",
+      "price": "299.00",
+      "stock": 14,
+      "image_url": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.70"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 45,
+    "fields": {
+      "category": 9,
+      "name": "Плед мягкий CozyHome",
+      "slug": "cozyhome-blanket",
+      "description": "Микрофибровый плед 150×200 см в мягких оттенках.",
+      "price": "59.00",
+      "stock": 40,
+      "image_url": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.40"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 46,
+    "fields": {
+      "category": 9,
+      "name": "Настольная лампа Loft",
+      "slug": "loft-table-lamp",
+      "description": "Лампа с приглушенным светом и металлическим абажуром в стиле лофт.",
+      "price": "45.00",
+      "stock": 36,
+      "image_url": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.30"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 47,
+    "fields": {
+      "category": 9,
+      "name": "Набор столовых приборов SilverLine",
+      "slug": "silverline-cutlery-set",
+      "description": "24-предметный набор из нержавеющей стали с зеркальной полировкой.",
+      "price": "79.00",
+      "stock": 28,
+      "image_url": "https://images.unsplash.com/photo-1481391032119-d89fee407e44?w=900",
+      "is_active": true,
+      "is_featured": false,
+      "rating": "4.50"
+    }
+  }
+]
+

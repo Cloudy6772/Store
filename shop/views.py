@@ -40,6 +40,11 @@ def home(request):
     )
 
 
+def category_list(request):
+    categories = Category.objects.all()
+    return render(request, "catalog/categories.html", {"categories": categories})
+
+
 def catalog(request):
     category_slug = request.GET.get("category")
     search_query = request.GET.get("q", "")
