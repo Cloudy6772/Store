@@ -1,0 +1,113 @@
+:root {
+    --green-primary: #28a745;
+    --green-secondary: #155724;
+    --green-accent: #20c997;
+    --green-muted: #b7ebcd;
+    --text-dark: #212529;
+    --bg-light: #ffffff;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.green-navbar {
+    background: linear-gradient(120deg, var(--green-secondary), var(--green-primary));
+}
+
+.btn-accent {
+    background-color: var(--green-accent);
+    border-color: var(--green-accent);
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background-color: #17a086;
+    border-color: #17a086;
+    color: #fff;
+}
+
+.footer {
+    background-color: #0c3d26;
+}
+
+.footer-link {
+    color: var(--green-muted);
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(40, 167, 69, 0.1));
+    border-radius: 1.5rem;
+    padding: 3rem;
+}
+
+.hero-cta .btn {
+    min-width: 180px;
+}
+
+.category-pill {
+    border: 1px solid rgba(32, 201, 151, 0.5);
+    color: var(--green-secondary);
+    transition: all 0.2s ease;
+}
+
+.category-pill.active,
+.category-pill:hover {
+    background-color: var(--green-primary);
+    color: #fff;
+}
+
+.product-card {
+    border: 1px solid rgba(21, 87, 36, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba(21, 87, 36, 0.15);
+}
+
+.category-card img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.price-tag {
+    font-size: 1.1rem;
+}
+
+.order-status-badge {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.accent-card {
+    border-left: 4px solid var(--green-accent);
+    border-radius: 0.75rem;
+}
+
+.cart-table input[type="number"] {
+    width: 90px;
+}
+
+.shadow-accent {
+    box-shadow: 0 0.5rem 1rem rgba(32, 201, 151, 0.25);
+}
+
+.alert-stack > .alert:not(:last-child) {
+    margin-bottom: 0.75rem;
+}
+

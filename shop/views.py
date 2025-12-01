@@ -123,7 +123,18 @@ def cart_add(request, product_id):
     quantity = int(request.POST.get("quantity", 1))
     product = cart.add(product_id, quantity=quantity)
     messages.success(request, f"{product.name} добавлен в корзину.")
-    return _cart_response(request, cart)
+    # при AJAX возвращаем расширенный JSON
+    if request.headers.get("x-requested-with") == "XMLHttpRequest":
+        return JsonResponse(
+            {
+                "items": len(cart),
+                "total": f"{cart.total:.2f}",
+                "product_name": product.name,
+                "quantity": quantity,
+            }
+        )
+    return redirect("cart_detail")
+
 
 
 @require_POST
