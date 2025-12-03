@@ -111,3 +111,47 @@ body {
     margin-bottom: 0.75rem;
 }
 
+.product-image {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+/* ===== COMPACT PRODUCT CARD ===== */
+.product-card-image {
+    height: 220px; /* уменьшенная высота изображения */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== FLEX LAYOUT FOR CATALOG ===== */
+.catalog-wrapper {
+    display: flex;
+    gap: 20px; /* расстояние между фильтрами и карточками */
+}
+
+.catalog-sidebar {
+    position: sticky;
+    top: 120px;
+    flex: 0 0 250px; /* фиксированная ширина */
+    height: fit-content;
+    z-index: 1000;
+}
+
+.catalog-content {
+    flex: 1; /* занимает оставшееся пространство */
+}
+
+/* Мобильные устройства */
+@media (max-width: 992px) {
+    .catalog-wrapper {
+        flex-direction: column;
+    }
+    .catalog-sidebar,
+    .catalog-content {
+        flex: 1 1 100%;
+        position: static;
+        margin: 0;
+    }
+}

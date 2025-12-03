@@ -1,13 +1,13 @@
 {% load static humanize %}
 <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
     <div class="card product-card h-100 border-success-subtle">
-        <a href="{{ product.get_absolute_url }}" class="ratio ratio-4x3 bg-light d-block">
+        <a href="{{ product.get_absolute_url }}" class="d-block">
             {% if product.primary_image_url %}
-                <img src="{{ product.primary_image_url }}" class="card-img-top object-fit-cover" alt="{{ product.name }}">
+                <img src="{{ product.primary_image_url }}" class="product-card-image card-img-top" alt="{{ product.name }}">
             {% elif product.main_image %}
-                <img src="{{ product.main_image.url }}" class="card-img-top object-fit-cover" alt="{{ product.name }}">
+                <img src="{{ product.main_image.url }}" class="product-card-image card-img-top" alt="{{ product.name }}">
             {% else %}
-                <img src="{% static 'img/product-placeholder.svg' %}" class="card-img-top object-fit-contain p-3" alt="{{ product.name }}">
+                <img src="{% static 'img/product-placeholder.svg' %}" class="product-card-image card-img-top object-fit-contain p-3" alt="{{ product.name }}">
             {% endif %}
         </a>
         <div class="card-body d-flex flex-column">
@@ -32,4 +32,3 @@
         </div>
     </div>
 </div>
-

@@ -14,14 +14,14 @@
     {% include 'includes/navbar.html' %}
     <main class="flex-grow-1 py-4">
         <div class="container">
-            {% include 'includes/messages.html' %}
+            <!-- {% include 'includes/messages.html' %} -->
             {% block content %}{% endblock %}
         </div>
     </main>
     {% include 'includes/footer.html' %}
 
    TOAST — фиксированное уведомление
-<div class="toast-container position-fixed bottom-0 end-0 p-4" style="z-index: 99999;">
+<div class="toast-container position-fixed top-0 end-0 p-4" style="z-index: 99999;">
     <div id="cart-toast"
          class="toast align-items-center text-bg-success border-0"
          role="alert"

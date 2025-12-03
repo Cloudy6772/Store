@@ -26,11 +26,11 @@
             </div>
         {% else %}
             {% if product.primary_image_url %}
-                <img src="{{ product.primary_image_url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+                <img src="{{ product.primary_image_url }}" class="product-image" alt="{{ product.name }}">
             {% elif product.main_image %}
-                <img src="{{ product.main_image.url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+                <img src="{{ product.main_image.url }}" class="product-image" alt="{{ product.name }}">
             {% else %}
-                <img src="{% static 'img/product-placeholder.svg' %}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+                <img src="{% static 'img/product-placeholder.svg' %}" class="product-image" alt="{{ product.name }}">
             {% endif %}
         {% endif %}
     </div>
